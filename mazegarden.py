@@ -26,7 +26,7 @@ trades = [
 ]
 
 best_reward = [Reward(0, Counter())]
-for i in range(1, 101):
+for i in range(1, 92):
     possible_trades = [x for x in trades if x.cost <= i]
     expected_value_arr = []
     for trade in possible_trades:
@@ -46,4 +46,7 @@ for i in range(1, 101):
 for i, rw in enumerate(best_reward):
     best_gain = i
     loss = best_gain - rw.echoes
-    print(f'{i}: {loss} {dict(rw.trades)}')
+    t = rw.trades
+    print('|-')
+    row = f'| {i} || {t["Correspondence Plaque"]} || {t["Whisper-Satin Scrap"]} || {t["Surface-Silk Scrap"]}'
+    print(f'{row}')
